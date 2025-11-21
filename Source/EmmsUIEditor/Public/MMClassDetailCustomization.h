@@ -66,6 +66,11 @@ class UMMClassDetailCustomization : public UObject, public FTickableGameObject
 	GENERATED_BODY()
 public:
 
+	UMMClassDetailCustomization(const FObjectInitializer& Initializer)
+		: Super(Initializer)
+		, FTickableGameObject(IsTemplate() ? ETickableTickType::Never : ETickableTickType::NewObject)
+	{}
+
 	virtual UWorld* GetWorld() const override;
 
 	UFUNCTION(BlueprintImplementableEvent)

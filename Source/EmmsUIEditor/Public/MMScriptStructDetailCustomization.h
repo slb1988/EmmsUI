@@ -38,6 +38,11 @@ class UMMScriptStructDetailCustomization : public UObject, public FTickableGameO
 
 public:
 
+	UMMScriptStructDetailCustomization(const FObjectInitializer& Initializer)
+		: Super(Initializer)
+		, FTickableGameObject(IsTemplate() ? ETickableTickType::Never : ETickableTickType::NewObject)
+	{}
+
 	UPROPERTY(EditDefaultsOnly, Category = "Detail Customization")
 	UScriptStruct* DetailStruct = nullptr;
 
